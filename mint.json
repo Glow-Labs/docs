@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Ludo",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/ludo.svg",
+    "light": "/logo/ludo.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -47,8 +47,14 @@
       "pages": ["introduction", "quickstart", "development"]
     },
     {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "group": "Building with Ludo",
+      "pages": [
+        "essentials/markdown",
+        "essentials/code",
+        "essentials/images",
+        "essentials/settings",
+        "essentials/navigation"
+      ]
     },
     {
       "group": "API Documentation",
@@ -57,10 +63,11 @@
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/update",
-        "api-reference/endpoint/delete"
+        "api-reference/endpoint/get_user",
+        "api-reference/endpoint/create_user",
+        "api-reference/endpoint/update_user",
+        "api-reference/endpoint/delete_user",
+        "api-reference/endpoint/get_item"
       ]
     }
   ],
