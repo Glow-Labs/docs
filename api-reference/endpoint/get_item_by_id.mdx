@@ -1,0 +1,77 @@
+---
+title: "Get Item By Id"
+api: "GET https://api.mintlify.com/api/v1/items/{itemId}"
+description: "This endpoint get Item by Item Id"
+---
+
+### Parameters
+<ParamField path="itemId" type="string" required>
+  This is the Id of the item.
+</ParamField>
+
+### Response
+
+<ResponseField name="itemName" type="strig">
+  Name of Item
+</ResponseField>
+
+<ResponseField name="ownerId" type="string">
+  Owner Id of Item
+</ResponseField>
+
+<ResponseField name="characteristics" type="object">
+  Characterstics of Item with Blockchain Id
+<Expandable title="Toggle object">
+
+<ResponseField name="caracteristicOne" type="string">
+  Item Characterstic One
+</ResponseField>
+
+<ResponseField name="caracteristicTwo" type="string">
+  Item Characterstic Two
+</ResponseField>
+
+<ResponseField name="caracteristicThree" type="string">
+  Item Characterstic Three
+</ResponseField>
+
+<ResponseField name="blockchainId" type="string">
+  Id from Blockchain
+</ResponseField>
+
+</Expandable>
+
+<ResponseField name="itemId" type="string">
+  Id of the Item
+</ResponseField>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request GET \
+'https://api.mintlify.com/api/v1/items/:itemId' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "itemName": "Ludo1",
+  "ownerId": "acme",
+  "characteristics": {
+      "caracteristicOne": "acme1",
+      "caracteristicTwo": "acme2",
+      "caracteristicThree": "acme3",
+      "blockchainId": "0x1"
+  },
+  "itemId": "65c2142a18ea33007ee289cf"
+}
+```
+
+</ResponseExample>
