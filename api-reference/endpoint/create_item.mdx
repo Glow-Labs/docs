@@ -1,0 +1,113 @@
+---
+title: "Create Item"
+api: "POST https://api.mintlify.com/api/v1/items"
+description: "This endpoint create an Item."
+---
+
+### Body
+
+<ParamField body="itemName" type="string" required>
+  This is the name of the Item.
+</ParamField>
+
+<ParamField body="ownerId" type="string" required>
+  This is Id of the Owner of the Item.
+</ParamField>
+
+<ParamField body="characteristics" type="object" required>
+  This object contains specific characteristics related to the item.
+    <ParamField body="characteristics.characteristic.One" type="string" required>
+      Identifier or value associated with `characteristic.One` of the item.
+    </ParamField>
+    <ParamField body="characteristics.characteristic.Two" type="string" required>
+      Identifier or value associated with `characteristic.Two` of the item.
+    </ParamField>
+
+    <ParamField body="characteristics.characteristic.Three" type="string" required>
+      Identifier or value associated with `characteristic.Three` of the item.
+    </ParamField>
+
+    <ParamField body="characteristics.blockchainId" type="string" required>
+      The blockchain ID related to the item, indicating its unique identifier on the blockchain.
+    </ParamField>
+</ParamField>
+
+
+### Response
+
+<ResponseField name="itemId" type="string">
+ This is Id of the Item.
+</ResponseField>
+
+<ResponseField name="itemName" type="string">
+  This is the name of the Item.
+</ResponseField>
+
+<ResponseField name="ownerId" type="string">
+ This is Id of the Owner of the Item.
+</ResponseField>
+
+<ResponseField name="caracteristic" type="object">
+
+The contents od the caracteristic object
+
+<Expandable title="Toggle object">
+
+<ResponseField name="caracteristicOne" type="string">
+  Item Characterstic One
+</ResponseField>
+
+<ResponseField name="caracteristicTwo" type="string">
+  Item Characterstic Two
+</ResponseField>
+
+<ResponseField name="caracteristicThree" type="string">
+  Item Characterstic Three
+</ResponseField>
+
+<ResponseField name="blockchainId" type="string">
+  Id from Blockchain
+</ResponseField>
+
+</Expandable>
+
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request \
+POST 'https://api.mintlify.com/api/v1/items' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Token <token>' \
+--data-raw '{
+    "itemName": "Ludo3",
+    "ownerId": "acme",
+    "characteristics": {
+      "characteristicOne": "acme1",
+      "characteristicTwo": "acme2",
+      "characteristicThree": "acme3",
+      "blockchainId": "0x1"
+    }
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "itemId": "Ludo3",
+  "characteristics": {
+    "characteristicOne": "acme1",
+    "characteristicTwo": "acme2",
+    "characteristicThree": "acme3",
+    "blockchainId": "0x1"
+  },
+  "ownerId": "acme",
+  "itemName": "Ludo3"
+}
+```
+
+</ResponseExample>
