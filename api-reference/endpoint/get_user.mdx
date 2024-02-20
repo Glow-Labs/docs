@@ -3,7 +3,10 @@ title: "Get User"
 api: "GET https://game-server-dev.fly.dev/api/user/{userId}"
 description: "This endpoint gets User by User Id"
 ---
-
+### Parameters
+<ParamField header="Authourization" type="string" required>
+  This is the Authourization token of customer.
+</ParamField>
 <ParamField path="userId" type="string" required>
   This is the id of the user
 </ParamField>
@@ -36,7 +39,7 @@ description: "This endpoint gets User by User Id"
 curl --location --request \
 GET 'https://game-server-dev.fly.dev/api/v1/user/:userId' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>'
+--header 'Authorization: Bearer <token>'
 ```
 
 </RequestExample>

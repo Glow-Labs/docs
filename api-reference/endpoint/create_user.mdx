@@ -59,7 +59,7 @@ The contents of the user group
 ```bash Example Request
 curl --location --request POST 'https://game-server-dev.fly.dev/api/user' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
     "current_token": ""
 }'

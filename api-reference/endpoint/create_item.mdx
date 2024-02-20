@@ -4,8 +4,12 @@ api: "POST https://game-server-dev.fly.dev/api/v1/items"
 description: "This endpoint create an Item."
 ---
 
-### Body
+### Parameters
+<ParamField header="Authourization" type="string" required>
+  This is the Authourization token of customer.
+</ParamField>
 
+### Body
 <ParamField body="itemName" type="string" required>
   This is the name of the Item.
 </ParamField>
@@ -79,7 +83,7 @@ The contents od the caracteristic object
 curl --location --request \
 POST 'https://game-server-dev.fly.dev/api/v1/items' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
     "itemName": "Ludo3",
     "ownerId": "acme",

@@ -5,6 +5,10 @@ description: "This endpoint get Item by Item Id"
 ---
 
 ### Parameters
+<ParamField header="Authourization" type="string" required>
+  This is the Authourization token of customer.
+</ParamField>
+
 <ParamField path="itemId" type="string" required>
   This is the Id of the item.
 </ParamField>
@@ -53,7 +57,7 @@ description: "This endpoint get Item by Item Id"
 curl --location --request GET \
 'https://game-server-dev.fly.dev/api/v1/items/:itemId' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 ```
 
 </RequestExample>

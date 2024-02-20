@@ -4,8 +4,12 @@ api: "PUT https://game-server-dev.fly.dev/api/v1/user/{userId}"
 description: "This endpoint updates an existing user."
 ---
 
-### Body
+### Parameters
+<ParamField header="Authourization" type="string" required>
+  This is the Authourization token of customer.
+</ParamField>
 
+### Body
 <ParamField path="userId" type="string" required>
   This is the Id of the item.
 </ParamField>
@@ -50,7 +54,7 @@ description: "This endpoint updates an existing user."
 curl --location --request \
 PUT 'https://game-server-dev.fly.dev/api/v1/user/{userId}' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \
+--header 'Authorization: Bearer <token>' \
 --data-raw '{
   "customerId": "65bcd9ab9f54b8ec4c9316cf",
   "email": "renee@join-glow.com",

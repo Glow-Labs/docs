@@ -5,9 +5,15 @@ description: "This endpoint deletes an existing item."
 ---
 
 ### Parameters
+
+<ParamField header="Authourization" type="string" required>
+  This is the Authourization token of customer.
+</ParamField>
+
 <ParamField path="itemId" type="string" required>
   This is the Id of the item.
 </ParamField>
+
 
 <RequestExample>
 
@@ -15,7 +21,7 @@ description: "This endpoint deletes an existing item."
 curl --location --request \
 DELETE 'https://game-server-dev.fly.dev/api/v1/items/:itemId' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Token <token>' \'
+--header 'Authorization: Bearer <token>' \'
 ```
 
 </RequestExample>
