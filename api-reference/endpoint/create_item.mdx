@@ -1,42 +1,40 @@
 ---
-title: "Update Item"
-api: "PUT https://game-server-dev.fly.dev/items/{itemId}"
-description: "This endpoint updates an existing item."
+title: "Create Item"
+api: "POST https://game-server-dev.fly.dev/api/v1/items"
+description: "This endpoint create an Item."
 ---
 
 ### Body
 
-<ParamField path="itemId" type="string" required>
-  This is the Id of the item.
+<ParamField body="itemName" type="string" required>
+  This is the name of the Item.
 </ParamField>
 
-<ParamField body="itemName" type="string">
-  This is Id of the Name of the Item.
-</ParamField>
-
-<ParamField body="ownerId" type="string">
+<ParamField body="ownerId" type="string" required>
   This is Id of the Owner of the Item.
 </ParamField>
 
-<ParamField body="characteristics" type="object">
+<ParamField body="characteristics" type="object" required>
   This object contains specific characteristics related to the item.
-    <ParamField body="characteristics.characteristic.One" type="string">
+    <ParamField body="characteristics.characteristic.One" type="string" required>
       Identifier or value associated with `characteristic.One` of the item.
     </ParamField>
-    <ParamField body="characteristics.characteristic.Two" type="string">
+    <ParamField body="characteristics.characteristic.Two" type="string" required>
       Identifier or value associated with `characteristic.Two` of the item.
     </ParamField>
 
-    <ParamField body="characteristics.characteristic.Three" type="string">
+    <ParamField body="characteristics.characteristic.Three" type="string" required>
       Identifier or value associated with `characteristic.Three` of the item.
     </ParamField>
 
-    <ParamField body="characteristics.blockchainId" type="string">
+    <ParamField body="characteristics.blockchainId" type="string" required>
       The blockchain ID related to the item, indicating its unique identifier on the blockchain.
     </ParamField>
 </ParamField>
 
+
 ### Response
+
 <ResponseField name="itemId" type="string">
  This is Id of the Item.
 </ResponseField>
@@ -78,18 +76,19 @@ The contents od the caracteristic object
 <RequestExample>
 
 ```bash Example Request
-curl --location --request PUT 'https://game-server-dev.fly.dev/api/v1/items/{itemId}' \
+curl --location --request \
+POST 'https://game-server-dev.fly.dev/api/v1/items' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Token <token>' \
 --data-raw '{
-  "itemName": "Ludo1",
-  "ownerId": "acme",
-  "characteristics": {
-    "characteristicOne": "acme1",
-    "characteristicTwo": "acme2",
-    "characteristicThree": "acme3",
-    "blockchainId": "0x1"
-  }
+    "itemName": "Ludo3",
+    "ownerId": "acme",
+    "characteristics": {
+      "characteristicOne": "acme1",
+      "characteristicTwo": "acme2",
+      "characteristicThree": "acme3",
+      "blockchainId": "0x1"
+    }
 }'
 ```
 
@@ -99,15 +98,15 @@ curl --location --request PUT 'https://game-server-dev.fly.dev/api/v1/items/{ite
 
 ```json Response
 {
-  "itemName": "Ludo56",
-  "ownerId": "acme",
+  "itemId": "Ludo3",
   "characteristics": {
     "characteristicOne": "acme1",
     "characteristicTwo": "acme2",
     "characteristicThree": "acme3",
     "blockchainId": "0x1"
   },
-  "itemId": "65c2142a18ea33007ee289cf"
+  "ownerId": "acme",
+  "itemName": "Ludo3"
 }
 ```
 
