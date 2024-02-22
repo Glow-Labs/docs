@@ -68,7 +68,8 @@
         "api-reference/endpoint/update_user",
         "api-reference/endpoint/delete_user",
         "api-reference/endpoint/get_item",
-        "api-reference/endpoint/create_item"
+        "api-reference/endpoint/create_item",
+        "api-reference/endpoint/delete_item"
       ]
     }
   ],
