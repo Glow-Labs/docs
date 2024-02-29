@@ -1,0 +1,46 @@
+---
+title: "Get User"
+api: "GET https://game-server-dev.fly.dev/api/v1/user"
+description: "This endpoint gets User by User Id"
+---
+### Parameters
+<ParamField header="Authorization" type="string" required>
+  This is the Authorization token of customer.
+</ParamField>
+<ParamField path="discordId" type="string" required>
+  This is discord Id of the User
+</ParamField>
+<ParamField body="customerId" type="string">
+  This is discord Id of the User
+</ParamField>
+
+### Response
+<ResponseField name="userId" type="string" required>
+  This is the Id of the User
+</ResponseField>
+
+<ResponseField name="points" type="number" required>
+  This is the point of the user
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request \
+GET 'https://game-server-dev.fly.dev/api/v1/user?discordId=123456' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "userId": "65bcd9a70348926d1e059449"
+  "points": 0
+}
+```
+
+</ResponseExample>

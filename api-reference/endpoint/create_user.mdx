@@ -8,52 +8,35 @@ description: "This endpoint creates a new user"
 <ParamField header="Authorization" type="string" required>
   This is the Authorization token of customer.
 </ParamField>
-<ParamField body="current_token" type="string">
-  This is the current user group token you have for the user group that you want
-  to rotate.
+<ParamField body="discordId" type="string" required>
+  This is discord Id of the User
+</ParamField>
+<ParamField body="discordEmail" type="string" required>
+  This is discord Email of the User
+</ParamField>
+<ParamField body="name" type="string" required>
+  This is the name of the user
+</ParamField>
+<ParamField body="customerId" type="string">
+  This is discord Id of the User
 </ParamField>
 
 ### Response
 
-<ResponseField name="success" type="number">
-  Indicates whether the call was successful. 1 if successful, 0 if not.
+<ResponseField name="userId" type="string" required>
+  This is the Id of the User
 </ResponseField>
 
-<ResponseField name="user_group" type="object">
-
-The contents of the user group
-
-<Expandable title="Toggle object">
-
-<ResponseField name="team_id" type="number">
-  This is the internal ID for this user group. You don't need to record this
-  information, since you will not need to use it.
+<ResponseField name="discordId" type="string" required>
+  This is discord Id of the User
 </ResponseField>
 
-<ResponseField name="token" type="string">
-  This is the user group token (userGroupToken or USER_GROUP_TOKEN) that will be
-  used to identify which user group is viewing the dashboard. You should save
-  this on your end to use when rendering an embedded dashboard.
+<ResponseField name="discordEmail" type="string" required>
+  This is discord Email of the User
 </ResponseField>
 
-<ResponseField name="name" type="string">
-  This is the name of the user group provided in the request body.
-</ResponseField>
-
-<ResponseField name="provided_id" type="string">
-  This is the user_group_id provided in the request body.
-</ResponseField>
-
-<ResponseField name="api_environment_tag" type="JSON or null">
-  This is the environment tag of the user group. Possible values are 'Customer'
-  and 'Testing'. User group id's must be unique to each environment, so you can
-  not create multiple user groups with with same id. If you have a production
-  customer and a test user group with the same id, you will be required to label
-  one as 'Customer' and another as 'Testing'
-</ResponseField>
-
-</Expandable>
-
+<ResponseField name="name" type="string" required>
+  This is the name of the user
 </ResponseField>
 
 <RequestExample>
@@ -63,7 +46,9 @@ curl --location --request POST 'https://game-server-dev.fly.dev/api/v1/user' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer <token>' \
 --data-raw '{
-    "current_token": ""
+    "discordId": "565463463",
+    "discordEmail": "renee@join-glow.com",
+    "name": "Renee Russo"
 }'
 ```
 
@@ -73,13 +58,10 @@ curl --location --request POST 'https://game-server-dev.fly.dev/api/v1/user' \
 
 ```json Response
 {
-  "success": 1,
-  "user_group": {
-    "team_id": 3,
-    "token": "<user_group_token_to_auth_dashboard>",
-    "name": "Example 1",
-    "provided_id": "example_1"
-  }
+  "userId": "65de2499aa8e053719e73297",
+  "discordId": "565463463",
+  "discordEmail": "renee@join-glow.com",
+  "name": "Renee Russo"
 }
 ```
 
