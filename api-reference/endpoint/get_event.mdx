@@ -4,12 +4,15 @@ api: "GET https://game-server-dev.fly.dev/api/v1/event"
 description: "This endpoint get an Event."
 ---
 
-### Parameters
+### Headers
 <ParamField header="Authorization" type="string" required>
   This is the Authorization token of customer.
 </ParamField>
 
-### Body
+### Query Parameters
+<ParamField query="customerId" type="string">
+  This is customer Id for which customer user is associated with
+</ParamField>
 <ParamField query="questId" type="string">
   This is the Id of the Quest
 </ParamField>
