@@ -1,0 +1,256 @@
+---
+title: "Get Quest"
+api: "GET https://game-server-dev.fly.dev/api/v1/quests"
+description: "This endpoint get Quest by Quest Id"
+---
+
+### Headers
+<ParamField header="Authorization" type="string" required>
+  This is the Authorization token of customer.
+</ParamField>
+
+### Query Parameters
+<ParamField query="customerId" type="string">
+  This is customer Id for which customer user is associated with
+</ParamField>
+<ParamField query="questId" type="string">
+  This is the Id of the Quest
+</ParamField>
+
+### Response
+<ResponseField name="quests" type="array[]" required>
+  An array containing quest objects.
+</ResponseField>
+
+<Expandable name="quests" label="Quest" expandLabel="Expand quest details">
+  <ResponseField name="customerId" type="string" required>
+    The ID of the customer associated with the quest.
+  </ResponseField>
+
+  <ResponseField name="name" type="string" required>
+    The name of the quest.
+  </ResponseField>
+
+  <ResponseField name="socialNetwork" type="string" required>
+    The social network associated with the quest.
+  </ResponseField>
+
+  <ResponseField name="status" type="string" required>
+    The status of the quest.
+  </ResponseField>
+
+  <ResponseField name="steps" type="object" required>
+    An object containing different steps of the quest.
+  </ResponseField>
+
+  <Expandable name="steps" label="Steps" expandLabel="Expand steps details">
+    <ResponseField name="start" type="object" required>
+      The start step of the quest.
+    </ResponseField>
+
+  <Expandable name="start" label="Start Step" expandLabel="Expand start step details">
+    <ResponseField name="prompt" type="object" required>
+      This is prompt of start quest.
+       <Expandable name="prompt" label="Start Prompt Quest" expandLabel="Expand start step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of start prompt quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of start prompt quest in japanese
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="success" type="object" required>
+      This is success of start quest.
+       <Expandable name="success" label="Start Success Quest" expandLabel="Expand start step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of start success quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of start success quest in japanese
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="failure" type="object" required>
+      This is failure of start quest.
+       <Expandable name="failure" label="Start Failure Quest" expandLabel="Expand start step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of start failure quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of start failure quest in japanese
+        </ResponseField>
+      </Expandable>
+      <ResponseField name="_id" type="string" required>
+        The is the Id of the Start step.
+  </ResponseField>
+    </ResponseField>
+  </Expandable>
+
+  <ResponseField name="final" type="object" required>
+    The final step of the quest.
+  </ResponseField>
+
+  <Expandable name="final" label="Final Step" expandLabel="Expand final step details">
+    <ResponseField name="prompt" type="object" required>
+      This is prompt of final quest.
+       <Expandable name="prompt" label="Final Prompt Quest" expandLabel="Expand final step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of final prompt quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of final prompt quest in japanese
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="success" type="object" required>
+      This is success of final quest.
+       <Expandable name="success" label="Final Success Quest" expandLabel="Expand final step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of final success quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of final success quest in japanese
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+    <ResponseField name="failure" type="object" required>
+      This is failure of final quest.
+       <Expandable name="failure" label="Final Failure Quest" expandLabel="Expand final step details">
+        <ResponseField name="messages_eng" type="array" required>
+          This is message of final failure quest in english
+        </ResponseField>
+        <ResponseField name="messages_jp" type="array" required>
+          This is message of final failure quest in japanese
+        </ResponseField>
+      </Expandable>
+    </ResponseField>
+
+    <ResponseField name="_id" type="string" required>
+      The is the Id of the final step.
+  </ResponseField>
+  </Expandable>
+</Expandable>
+
+  <ResponseField name="rewards" type="array" required>
+    An array containing reward objects for the quest.
+  </ResponseField>
+
+  <ResponseField name="temporality" type="string" required>
+    The temporality of the quest (e.g., daily, weekly).
+  </ResponseField>
+
+  <ResponseField name="type" type="string" required>
+    The type of the quest.
+  </ResponseField>
+
+  <ResponseField name="socialNetworkId" type="string" required>
+    The ID of the social network associated with the quest.
+  </ResponseField>
+
+  <ResponseField name="questId" type="string" required>
+    The ID of the quest.
+  </ResponseField>
+</Expandable>
+
+<ResponseField name="totalEvents" type="number" required>
+ Total number of events.
+</ResponseField>
+<ResponseField name="limit" type="number" required>
+ Limit of events per page.
+</ResponseField>
+<ResponseField name="page" type="number" required>
+ Current page number.
+</ResponseField>
+<ResponseField name="totalPages" type="number" required>
+ Total number of pages.
+</ResponseField>
+<ResponseField name="pagingCounter" type="number" required>
+ Counter for pagination.
+</ResponseField>
+<ResponseField name="hasPrevPage" type="boolean" required>
+ Indicates if there is a previous page.
+</ResponseField>
+<ResponseField name="hasNextPage" type="boolean" required>
+ Indicates if there is a next page.
+</ResponseField>
+<ResponseField name="prevPage" type="number|null" required>
+ Number of the previous page, or null if not available.
+</ResponseField>
+<ResponseField name="nextPage" type="number|null" required>
+ Number of the next page, or null if not available.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request GET \
+'https://game-server-dev.fly.dev/api/v1/quests' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "quests": [
+    {
+      "customerId": "650c5d9b1dcc9ab2a726b87e",
+      "name": "dzqdzq",
+      "socialNetwork": "discord",
+      "status": "active",
+      "steps": {
+        "start": {
+          "prompt": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "success": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "failure": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "_id": "65de7e8e67fd86cf222e1557"
+        },
+        "final": {
+          "prompt": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "success": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "failure": {
+              "messages_eng": [],
+              "messages_jp": []
+          },
+          "_id": "65de7e8e67fd86cf222e1556"
+        },
+        "rewards": []
+      },
+      "temporality": "daily",
+      "type": "random_cards",
+      "socialNetworkId": "1211990665185992826",
+      "questId": "65de7cdde3373bef2b33c4aa"
+    }
+  ]
+  "totalQuests": 1,
+  "limit": 100,
+  "page": 1,
+  "totalPages": 1,
+  "pagingCounter": 1,
+  "hasPrevPage": false,
+  "hasNextPage": false,
+  "prevPage": null,
+  "nextPage": null
+}
+```
+
+</ResponseExample>

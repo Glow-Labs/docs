@@ -70,7 +70,8 @@
         "api-reference/endpoint/get_item",
         "api-reference/endpoint/update_item",
         "api-reference/endpoint/create_item",
-        "api-reference/endpoint/delete_item"
+        "api-reference/endpoint/delete_item",
+        "api-reference/endpoint/get_quest"
       ]
     }
   ],
