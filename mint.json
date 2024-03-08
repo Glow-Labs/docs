@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Ludo", 
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/logo/ludo-light.svg",
+    "light": "/logo/ludo-dark.svg"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -44,7 +44,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
+      "pages": ["introduction", "development"]
     },
     {
       "group": "Building with Ludo",
@@ -77,6 +77,6 @@
   "footerSocials": {
     "twitter": "https://twitter.com/ludoloyalty",
     "instagram": "https://instagram.com/ludoloyalty",
-    "linkedin": "https://www.linkedin.com/company/joinglow"
+    "linkedin": "https://www.linkedin.com/company/ludorewards"
   }
 }
