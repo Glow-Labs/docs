@@ -1,22 +1,22 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "Authentication for API Endpoint to Authenticate Customer"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+The string 'Authorization': 'Bearer "token"' typically appears in the context of HTTP requests, particularly in the header part of an API call. This format is used for authentication and authorization purposes. Here's a brief explanation about each component and its role
 
 ```bash
-'Authorization': 'Token <team_token>'
+'Authorization': 'Bearer "token"'
 ```
 
 ## API Tokens
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+Authorization: This is the name of the HTTP header where authentication credentials are provided to access a resource. It's used by the server to determine if a client has permission to access the requested resource.
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+Bearer: This part of the header indicates that the type of authentication being used is a "Bearer Token." Bearer tokens are a type of access token that allows the bearer (the client making the request) to access a protected resource, like an API. The term "bearer" implies that the possessor of the token has been authorized to access the resource; it doesn't necessarily verify the identity of the user, just the possession of a valid token.
+
+token: This placeholder represents the actual token value provided to the client. This token is a unique string of characters that acts as a credential, used to authenticate and authorize the client making the request to the server. In practice, this would be replaced with a real token value assigned by the server or the service providing the API.
 
 ### Permissions
 
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
-
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+The use of Bearer tokens is a common method for handling API authentication in web and mobile applications. It's part of the OAuth 2.0 framework, which is a standard for authorization. When a client wants to access a protected resource, it must present this token in the HTTP header of its request. The server then validates the token and, if it's valid, allows the request to proceed. If the token is missing, expired, or invalid, the server will deny access to the resource.
