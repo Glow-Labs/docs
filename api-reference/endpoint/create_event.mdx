@@ -1,0 +1,95 @@
+---
+title: "Create Event"
+api: "POST https://game-server-dev.fly.dev/api/v1/event"
+description: "This endpoint create an Event."
+---
+
+### Headers
+<ParamField header="Authorization" type="string" required>
+  This is the Authorization token of customer.
+</ParamField>
+
+### Body
+<ParamField body="questId" type="string" required>
+  This is the Id of the Quest
+</ParamField>
+
+<ParamField body="customerId" type="string">
+  This is customer Id for which customer user is associated with
+</ParamField>
+
+<ParamField body="userId" type="string" required>
+  This is the Id of the User
+</ParamField>
+
+<ParamField body="itemId" type="string" required>
+  This is the Id of the Item
+</ParamField>
+
+<ParamField body="points" type="number" required>
+  This is the number of points the user has
+</ParamField>
+
+### Response
+
+<ResponseField name="eventId" type="string" required>
+ This is Id of the Event.
+</ResponseField>
+
+<ResponseField name="questId" type="string" required>
+ This is Id of the Quest.
+</ResponseField>
+
+<ResponseField name="userId" type="string" required>
+ This is Id of the User.
+</ResponseField>
+
+<ResponseField name="customerId" type="string" required>
+ This is Id of the Customer.
+</ResponseField>
+
+<ResponseField name="status" type="string" required>
+ This is status of event.
+</ResponseField>
+
+<ResponseField name="points" type="number" required>
+ This is the number of points the user has
+</ResponseField>
+
+<ResponseField name="itemId" type="string" required>
+ This is Id of the Item.
+</ResponseField>
+
+<RequestExample>
+
+```bash Example Request
+curl --location --request \
+POST 'https://game-server-dev.fly.dev/api/v1/event' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+--data-raw '{
+    "questId": "65bbca8a270673244682abb5",
+    "userId": "65cc7065ae36463df07f436f",
+    "points": 20,
+    "itemId": "65dd8dae943b170eda97ea9a"
+  }
+}'
+```
+
+</RequestExample>
+
+<ResponseExample>
+
+```json Response
+{
+  "eventId": "65dd8f50b1b05469f038b0fb",
+  "questId": "65bbca8a270673244682abb5",
+  "userId": "65cc7065ae36463df07f436f",
+  "customerId": "65dd8d1f09ff736f9d6638e4",
+  "status": "to-process",
+  "points": 20,
+  "itemId": "65dd8dae943b170eda97ea9a"
+}
+```
+
+</ResponseExample>
