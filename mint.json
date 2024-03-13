@@ -73,7 +73,8 @@
         "api-reference/endpoint/delete_item",
         "api-reference/endpoint/check_user",
         "api-reference/endpoint/create_event",
-        "api-reference/endpoint/get_event"
+        "api-reference/endpoint/get_event",
+        "api-reference/endpoint/get_customer"
       ]
     }
   ],
